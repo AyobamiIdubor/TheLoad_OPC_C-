@@ -1,0 +1,908 @@
+'*****************************************************************************************************************
+'*** Developer : Ayobami O. Idubor                                                            ********************
+'*** Software Name : Real time Data Snapshot                                                      ********************
+'*** Developed Date: May 07, 2021                                                             ********************
+'*** Developed version # 20210427.01                                                          ********************                                                                                         
+'*** Revised Date: April 27, 2021                                                             ********************
+'*** Revised Version # 20210427.01       Kepware OPC Server integrated                        ********************
+'**************************************************************************************************************
+
+Imports System.IO
+Public Class Loads
+    Dim Furn As Integer
+    'Dim StartTime As Date
+    'Dim StopTime As Date
+    Private Sub btnAnnLoads_Click(sender As System.Object, e As System.EventArgs) Handles btnAnnLoads.Click
+
+        Furn = 0
+        Call LogData()
+        Furn = 1
+        Call LogData()
+        Furn = 2
+        Call LogData()
+        Furn = 3
+        Call LogData()
+        Furn = 4
+        Call LogData()
+        Furn = 5
+        Call LogData()
+        Furn = 6
+        Call LogData()
+        Furn = 7
+        Call LogData()
+        Furn = 8
+        Call LogData()
+        Furn = 9
+        Call LogData()
+        Furn = 10
+        Call LogData()
+
+    End Sub
+
+    Private Sub txtTimeRem0_TextChanged(sender As Object, e As System.EventArgs) Handles txtTimeRem0.TextChanged
+        If (Trim(txtMode0.Text) = "4" Or Trim(txtMode0.Text) = "3" Or Trim(txtMode0.Text) = "2" Or Trim(txtMode0.Text) = "1") And (Trim(txtTimeRem0.Text) = "1" Or Trim(txtTimeRem0.Text) = "3" Or Convert.ToInt32(Trim(txtTimeRem0.Text)) < 25) Then
+            Furn = 0
+            CycStop0.Text = Date.Now
+            Call LogData()
+        End If
+    End Sub
+
+    Private Sub txtTimeRem1_TextChanged(sender As Object, e As System.EventArgs) Handles txtTimeRem1.TextChanged
+        If (Trim(txtMode1.Text) = "4" Or Trim(txtMode1.Text) = "3" Or Trim(txtMode1.Text) = "2" Or Trim(txtMode1.Text) = "1") And (Trim(txtTimeRem1.Text) = "1" Or Trim(txtTimeRem1.Text) = "3" Or Convert.ToInt32(Trim(txtTimeRem1.Text)) < 25) Then
+            Furn = 1
+            CycStop1.Text = Date.Now
+            Call LogData()
+        End If
+    End Sub
+    Private Sub txtTimeRem2_TextChanged(sender As Object, e As System.EventArgs) Handles txtTimeRem2.TextChanged
+        If (Trim(txtMode2.Text) = "4" Or Trim(txtMode2.Text) = "3" Or Trim(txtMode2.Text) = "2" Or Trim(txtMode2.Text) = "1") And (Trim(txtTimeRem2.Text) = "1" Or Trim(txtTimeRem2.Text) = "3" Or Convert.ToInt32(Trim(txtTimeRem2.Text)) < 25) Then
+            Furn = 2
+            CycStop2.Text = Date.Now
+            Call LogData()
+        End If
+    End Sub
+    Private Sub txtTimeRem3_TextChanged(sender As Object, e As System.EventArgs) Handles txtTimeRem3.TextChanged
+        If (Trim(txtMode3.Text) = "4" Or Trim(txtMode3.Text) = "3" Or Trim(txtMode3.Text) = "2" Or Trim(txtMode3.Text) = "1") And (Trim(txtTimeRem3.Text) = "1" Or Trim(txtTimeRem3.Text) = "3" Or Convert.ToInt32(Trim(txtTimeRem3.Text)) < 25) Then
+            Furn = 3
+            CycStop3.Text = Date.Now
+            Call LogData()
+        End If
+    End Sub
+    Private Sub txtTimeRem4_TextChanged(sender As Object, e As System.EventArgs) Handles txtTimeRem4.TextChanged
+        If (Trim(txtMode4.Text) = "4" Or Trim(txtMode4.Text) = "3" Or Trim(txtMode4.Text) = "2" Or Trim(txtMode4.Text) = "1") And (Trim(txtTimeRem4.Text) = "1" Or Trim(txtTimeRem4.Text) = "3" Or Convert.ToInt32(Trim(txtTimeRem4.Text)) < 25) Then
+            Furn = 4
+            CycStop4.Text = Date.Now
+            Call LogData()
+        End If
+    End Sub
+    Private Sub txtTimeRem5_TextChanged(sender As Object, e As System.EventArgs) Handles txtTimeRem5.TextChanged
+        If (Trim(txtMode5.Text) = "4" Or Trim(txtMode5.Text) = "3" Or Trim(txtMode5.Text) = "2" Or Trim(txtMode5.Text) = "1") And (Trim(txtTimeRem5.Text) = "1" Or Trim(txtTimeRem5.Text) = "3" Or Convert.ToInt32(Trim(txtTimeRem5.Text)) < 25) Then
+            Furn = 5
+            CycStop5.Text = Date.Now
+            Call LogData()
+        End If
+    End Sub
+    Private Sub txtTimeRem6_TextChanged(sender As Object, e As System.EventArgs) Handles txtTimeRem6.TextChanged
+        If (Trim(txtMode6.Text) = "4" Or Trim(txtMode6.Text) = "3" Or Trim(txtMode6.Text) = "2" Or Trim(txtMode6.Text) = "1") And (Trim(txtTimeRem6.Text) = "1" Or Trim(txtTimeRem6.Text) = "3" Or Convert.ToInt32(Trim(txtTimeRem6.Text)) < 25) Then
+            Furn = 6
+            CycStop6.Text = Date.Now
+            Call LogData()
+        End If
+    End Sub
+    Private Sub txtTimeRem7_TextChanged(sender As Object, e As System.EventArgs) Handles txtTimeRem7.TextChanged
+        If (Trim(txtMode7.Text) = "4" Or Trim(txtMode7.Text) = "3" Or Trim(txtMode7.Text) = "2" Or Trim(txtMode7.Text) = "1") And (Trim(txtTimeRem7.Text) = "1" Or Trim(txtTimeRem7.Text) = "3" Or Convert.ToInt32(Trim(txtTimeRem7.Text)) < 25) Then
+            Furn = 7
+            CycStop7.Text = Date.Now
+            Call LogData()
+        End If
+    End Sub
+    Private Sub txtTimeRem8_TextChanged(sender As Object, e As System.EventArgs) Handles txtTimeRem8.TextChanged
+        If (Trim(txtMode8.Text) = "4" Or Trim(txtMode8.Text) = "3" Or Trim(txtMode8.Text) = "2" Or Trim(txtMode8.Text) = "1") And (Trim(txtTimeRem8.Text) = "1" Or Trim(txtTimeRem8.Text) = "3" Or Convert.ToInt32(Trim(txtTimeRem8.Text)) < 25) Then
+            Furn = 8
+            CycStop8.Text = Date.Now
+            Call LogData()
+        End If
+    End Sub
+    Private Sub txtTimeRem9_TextChanged(sender As Object, e As System.EventArgs) Handles txtTimeRem9.TextChanged
+        If (Trim(txtMode9.Text) = "4" Or Trim(txtMode9.Text) = "3" Or Trim(txtMode9.Text) = "2" Or Trim(txtMode9.Text) = "1") And (Trim(txtTimeRem9.Text) = "1" Or Trim(txtTimeRem9.Text) = "3" Or Convert.ToInt32(Trim(txtTimeRem9.Text)) < 25) Then
+            Furn = 9
+            CycStop9.Text = Date.Now
+            Call LogData()
+        End If
+    End Sub
+    Private Sub txtTimeRem10_TextChanged(sender As Object, e As System.EventArgs) Handles txtTimeRem10.TextChanged
+        If (Trim(txtMode10.Text) = "4" Or Trim(txtMode10.Text) = "3" Or Trim(txtMode10.Text) = "2" Or Trim(txtMode10.Text) = "1") And (Trim(txtTimeRem10.Text) = "1" Or Trim(txtTimeRem10.Text) = "3" Or Convert.ToInt32(Trim(txtTimeRem10.Text)) < 25) Then
+            Furn = 10
+            CycStop10.Text = Date.Now
+            Call LogData()
+        End If
+    End Sub
+
+
+    'Public Function LoadEnds() As Boolean
+    '    LoadEnds = False
+    '    If Trim(txtTimeRem0.Text) = "1" Or Trim(txtTimeRem0.Text) = "3" Or Trim(txtTimeRem0.Text) = "5" Then
+    '        Furn = 0
+    '        Call LogData()
+    '    End If
+    '    If Trim(txtTimeRem1.Text) = "1" Or Trim(txtTimeRem1.Text) = "3" Or Trim(txtTimeRem1.Text) = "5" Then
+    '        Furn = 1
+    '        Call LogData()
+    '    End If
+    '    If Trim(txtTimeRem2.Text) = "1" Or Trim(txtTimeRem2.Text) = "3" Or Trim(txtTimeRem2.Text) = "5" Then
+    '        Furn = 2
+    '        Call LogData()
+    '    End If
+    '    If Trim(txtTimeRem3.Text) = "1" Or Trim(txtTimeRem3.Text) = "3" Or Trim(txtTimeRem3.Text) = "5" Then
+    '        Furn = 3
+    '        Call LogData()
+    '    End If
+    '    If Trim(txtTimeRem4.Text) = "1" Or Trim(txtTimeRem4.Text) = "3" Or Trim(txtTimeRem4.Text) = "5" Then
+    '        Furn = 4
+    '        Call LogData()
+    '    End If
+    '    If Trim(txtTimeRem5.Text) = "1" Or Trim(txtTimeRem5.Text) = "3" Or Trim(txtTimeRem5.Text) = "5" Then
+    '        Furn = 5
+    '        Call LogData()
+    '    End If
+    '    If Trim(txtTimeRem6.Text) = "1" Or Trim(txtTimeRem6.Text) = "3" Or Trim(txtTimeRem6.Text) = "5" Then
+    '        Furn = 6
+    '        Call LogData()
+    '    End If
+    '    If Trim(txtTimeRem7.Text) = "1" Or Trim(txtTimeRem7.Text) = "3" Or Trim(txtTimeRem7.Text) = "5" Then
+    '        Furn = 7
+    '        Call LogData()
+    '    End If
+    '    If Trim(txtTimeRem8.Text) = "1" Or Trim(txtTimeRem8.Text) = "3" Or Trim(txtTimeRem8.Text) = "5" Then
+    '        Furn = 8
+    '        Call LogData()
+    '    End If
+    '    If Trim(txtTimeRem9.Text) = "1" Or Trim(txtTimeRem9.Text) = "3" Or Trim(txtTimeRem9.Text) = "5" Then
+    '        Furn = 9
+    '        Call LogData()
+    '    End If
+    '    If Trim(txtTimeRem10.Text) = "1" Or Trim(txtTimeRem10.Text) = "3" Or Trim(txtTimeRem10.Text) = "5" Then
+    '        Furn = 10
+    '        Call LogData()
+    '    End If
+    '    LoadEnds = True
+    'End Function
+    Public Function LogData() As Boolean
+
+        Dim Time_PurgeMode0, Time_HeatMode0, Time_SoakMode0, Time_CoolMode0 As Double
+        Dim Time_PurgeMode1, Time_HeatMode1, Time_SoakMode1, Time_CoolMode1 As Double
+        Dim Time_PurgeMode2, Time_HeatMode2, Time_SoakMode2, Time_CoolMode2 As Double
+        Dim Time_PurgeMode3, Time_HeatMode3, Time_SoakMode3, Time_CoolMode3 As Double
+        Dim Time_PurgeMode4, Time_HeatMode4, Time_SoakMode4, Time_CoolMode4 As Double
+        Dim Time_PurgeMode5, Time_HeatMode5, Time_SoakMode5, Time_CoolMode5 As Double
+        Dim Time_PurgeMode6, Time_HeatMode6, Time_SoakMode6, Time_CoolMode6 As Double
+        Dim Time_PurgeMode7, Time_HeatMode7, Time_SoakMode7, Time_CoolMode7 As Double
+        Dim Time_PurgeMode8, Time_HeatMode8, Time_SoakMode8, Time_CoolMode8 As Double
+        Dim Time_PurgeMode9, Time_HeatMode9, Time_SoakMode9, Time_CoolMode9 As Double
+        Dim Time_PurgeMode10, Time_HeatMode10, Time_SoakMode10, Time_CoolMode10 As Double
+
+        LogData = False
+
+        If Trim(txtLoadWt0.Text) <> "" And Trim(txtLoadWt0.Text) <> "0" Then
+            Time_PurgeMode0 = Convert.ToInt32(txtPurge0.Text) / Convert.ToInt32(txtLoadWt0.Text)
+            Time_HeatMode0 = Convert.ToInt32(txtHeat0.Text) / Convert.ToInt32(txtLoadWt0.Text)
+            Time_SoakMode0 = Convert.ToInt32(txtSoak0.Text) / Convert.ToInt32(txtLoadWt0.Text)
+            Time_CoolMode0 = Convert.ToInt32(txtCool0.Text) / Convert.ToInt32(txtLoadWt0.Text)
+        ElseIf Trim(txtLoadWt0.Text) = "0" Then
+            Time_PurgeMode0 = 0
+            Time_HeatMode0 = 0
+            Time_SoakMode0 = 0
+            Time_CoolMode0 = 0
+        End If
+
+        If Trim(txtLoadWt1.Text) <> "" And Trim(txtLoadWt1.Text) <> "0" Then
+            Time_PurgeMode1 = Convert.ToInt32(txtPurge1.Text) / Convert.ToInt32(txtLoadWt1.Text)
+            Time_HeatMode1 = Convert.ToInt32(txtHeat1.Text) / Convert.ToInt32(txtLoadWt1.Text)
+            Time_SoakMode1 = Convert.ToInt32(txtSoak1.Text) / Convert.ToInt32(txtLoadWt1.Text)
+            Time_CoolMode1 = Convert.ToInt32(txtCool1.Text) / Convert.ToInt32(txtLoadWt1.Text)
+        ElseIf Trim(txtLoadWt1.Text) = "0" Then
+            Time_PurgeMode1 = 0
+            Time_HeatMode1 = 0
+            Time_SoakMode1 = 0
+            Time_CoolMode1 = 0
+        End If
+
+        If Trim(txtLoadWt2.Text) <> "" And Trim(txtLoadWt2.Text) <> "0" Then
+            Time_PurgeMode2 = Convert.ToInt32(txtPurge2.Text) / Convert.ToInt32(txtLoadWt2.Text)
+            Time_HeatMode2 = Convert.ToInt32(txtHeat2.Text) / Convert.ToInt32(txtLoadWt2.Text)
+            Time_SoakMode2 = Convert.ToInt32(txtSoak2.Text) / Convert.ToInt32(txtLoadWt2.Text)
+            Time_CoolMode2 = Convert.ToInt32(txtCool2.Text) / Convert.ToInt32(txtLoadWt2.Text)
+        ElseIf Trim(txtLoadWt2.Text) = "0" Then
+            Time_PurgeMode2 = 0
+            Time_HeatMode2 = 0
+            Time_SoakMode2 = 0
+            Time_CoolMode2 = 0
+        End If
+
+
+        If Trim(txtLoadWt3.Text) <> "" And Trim(txtLoadWt3.Text) <> "0" Then
+            Time_PurgeMode3 = Convert.ToInt32(txtPurge3.Text) / Convert.ToInt32(txtLoadWt3.Text)
+            Time_HeatMode3 = Convert.ToInt32(txtHeat3.Text) / Convert.ToInt32(txtLoadWt3.Text)
+            Time_SoakMode3 = Convert.ToInt32(txtSoak3.Text) / Convert.ToInt32(txtLoadWt3.Text)
+            Time_CoolMode3 = Convert.ToInt32(txtCool3.Text) / Convert.ToInt32(txtLoadWt3.Text)
+
+        ElseIf Trim(txtLoadWt3.Text) = "0" Then
+            Time_PurgeMode3 = 0
+            Time_HeatMode3 = 0
+            Time_SoakMode3 = 0
+            Time_CoolMode3 = 0
+        End If
+
+        If Trim(txtLoadWt4.Text) <> "" And Trim(txtLoadWt4.Text) <> "0" Then
+            Time_PurgeMode4 = Convert.ToInt32(txtPurge4.Text) / Convert.ToInt32(txtLoadWt4.Text)
+            Time_HeatMode4 = Convert.ToInt32(txtHeat4.Text) / Convert.ToInt32(txtLoadWt4.Text)
+            Time_SoakMode4 = Convert.ToInt32(txtSoak4.Text) / Convert.ToInt32(txtLoadWt4.Text)
+            Time_CoolMode4 = Convert.ToInt32(txtCool4.Text) / Convert.ToInt32(txtLoadWt4.Text)
+        ElseIf Trim(txtLoadWt4.Text) = "0" Then
+            Time_PurgeMode4 = 0
+            Time_HeatMode4 = 0
+            Time_SoakMode4 = 0
+            Time_CoolMode4 = 0
+        End If
+
+        If Trim(txtLoadWt5.Text) <> "" And Trim(txtLoadWt5.Text) <> "0" Then
+            Time_PurgeMode5 = Convert.ToInt32(txtPurge5.Text) / Convert.ToInt32(txtLoadWt5.Text)
+            Time_HeatMode5 = Convert.ToInt32(txtHeat5.Text) / Convert.ToInt32(txtLoadWt5.Text)
+            Time_SoakMode5 = Convert.ToInt32(txtSoak5.Text) / Convert.ToInt32(txtLoadWt5.Text)
+            Time_CoolMode5 = Convert.ToInt32(txtCool5.Text) / Convert.ToInt32(txtLoadWt5.Text)
+        ElseIf Trim(txtLoadWt5.Text) = "0" Then
+            Time_PurgeMode5 = 0
+            Time_HeatMode5 = 0
+            Time_SoakMode5 = 0
+            Time_CoolMode5 = 0
+        End If
+
+        If Trim(txtLoadWt6.Text) <> "" And Trim(txtLoadWt6.Text) <> "0" Then
+            Time_PurgeMode6 = Convert.ToInt32(txtPurge6.Text) / Convert.ToInt32(txtLoadWt6.Text)
+            Time_HeatMode6 = Convert.ToInt32(txtHeat6.Text) / Convert.ToInt32(txtLoadWt6.Text)
+            Time_SoakMode6 = Convert.ToInt32(txtSoak6.Text) / Convert.ToInt32(txtLoadWt6.Text)
+            Time_CoolMode6 = Convert.ToInt32(txtCool6.Text) / Convert.ToInt32(txtLoadWt6.Text)
+        ElseIf Trim(txtLoadWt6.Text) = "0" Then
+            Time_PurgeMode6 = 0
+            Time_HeatMode6 = 0
+            Time_SoakMode6 = 0
+            Time_CoolMode6 = 0
+        End If
+
+        If Trim(txtLoadWt7.Text) <> "" And Trim(txtLoadWt7.Text) <> "0" Then
+            Time_PurgeMode7 = Convert.ToInt32(txtPurge7.Text) / Convert.ToInt32(txtLoadWt7.Text)
+            Time_HeatMode7 = Convert.ToInt32(txtHeat7.Text) / Convert.ToInt32(txtLoadWt7.Text)
+            Time_SoakMode7 = Convert.ToInt32(txtSoak7.Text) / Convert.ToInt32(txtLoadWt7.Text)
+            Time_CoolMode7 = Convert.ToInt32(txtCool7.Text) / Convert.ToInt32(txtLoadWt7.Text)
+        ElseIf Trim(txtLoadWt7.Text) = "0" Then
+            Time_PurgeMode7 = 0
+            Time_HeatMode7 = 0
+            Time_SoakMode7 = 0
+            Time_CoolMode7 = 0
+        End If
+
+        If Trim(txtLoadWt8.Text) <> "" And Trim(txtLoadWt8.Text) <> "0" Then
+            Time_PurgeMode8 = Convert.ToInt32(txtPurge8.Text) / Convert.ToInt32(txtLoadWt8.Text)
+            Time_HeatMode8 = Convert.ToInt32(txtHeat8.Text) / Convert.ToInt32(txtLoadWt8.Text)
+            Time_SoakMode8 = Convert.ToInt32(txtSoak8.Text) / Convert.ToInt32(txtLoadWt8.Text)
+            Time_CoolMode8 = Convert.ToInt32(txtCool8.Text) / Convert.ToInt32(txtLoadWt8.Text)
+        ElseIf Trim(txtLoadWt8.Text) = "0" Then
+            Time_PurgeMode8 = 0
+            Time_HeatMode8 = 0
+            Time_SoakMode8 = 0
+            Time_CoolMode8 = 0
+        End If
+
+        If Trim(txtLoadWt9.Text) <> "" And Trim(txtLoadWt9.Text) <> "0" Then
+            Time_PurgeMode9 = Convert.ToInt32(txtPurge9.Text) / Convert.ToInt32(txtLoadWt9.Text)
+            Time_HeatMode9 = Convert.ToInt32(txtHeat9.Text) / Convert.ToInt32(txtLoadWt9.Text)
+            Time_SoakMode9 = Convert.ToInt32(txtSoak9.Text) / Convert.ToInt32(txtLoadWt9.Text)
+            Time_CoolMode9 = Convert.ToInt32(txtCool9.Text) / Convert.ToInt32(txtLoadWt9.Text)
+        ElseIf Trim(txtLoadWt9.Text) = "0" Then
+            Time_PurgeMode9 = 0
+            Time_HeatMode9 = 0
+            Time_SoakMode9 = 0
+            Time_CoolMode9 = 0
+        End If
+
+        If Trim(txtLoadWt10.Text) <> "" And Trim(txtLoadWt10.Text) <> "0" Then
+            Time_PurgeMode10 = Convert.ToInt32(txtPurge10.Text) / Convert.ToInt32(txtLoadWt10.Text)
+            Time_HeatMode10 = Convert.ToInt32(txtHeat10.Text) / Convert.ToInt32(txtLoadWt10.Text)
+            Time_SoakMode10 = Convert.ToInt32(txtSoak10.Text) / Convert.ToInt32(txtLoadWt10.Text)
+            Time_CoolMode10 = Convert.ToInt32(txtCool10.Text) / Convert.ToInt32(txtLoadWt10.Text)
+        ElseIf Trim(txtLoadWt10.Text) = "0" Then
+            Time_PurgeMode10 = 0
+            Time_HeatMode10 = 0
+            Time_SoakMode10 = 0
+            Time_CoolMode10 = 0
+        End If
+
+
+        Try
+            Dim oConn As New OleDb.OleDbConnection
+            Dim cmd As New OleDb.OleDbCommand
+
+            Dim sConn As String
+            sConn = "Provider=Microsoft.Jet.OLEDB.4.0; Data source = C:\AnnealLoads\AnnealingLoads.mdb"
+            'sConn = "Provider=Microsoft.Jet.OLEDB.4.0; Data source = T:\Annealing\AnnealingLoads.mdb"
+            'sConn = "Provider=Microsoft.Jet.OLEDB.4.0; Data source = T:\Annealing\AnnealingLoads.mdb"
+            oConn.ConnectionString = sConn
+            If Not oConn.State = ConnectionState.Open Then
+                oConn.Open()
+            End If
+            cmd.Connection = oConn
+
+            If Furn = 0 Then
+                cmd.CommandText = "Insert into AnnealingLoads([LoadStartDateTime], [LoadStopDateTime], [Cycle], [Furnace], [LoadId], [LoadWeight], [PurgeTime], [PurgeTimePerPound], [HeatTime], [HeatTimePerPound], [SoakTime], [SoakTimePerPound], [CoolTime], [CoolTimePerPound], [TimeStamp]) VALUES ('" & CycStart0.Text & "' , '" & CycStop0.Text & "', '" & txtCyc0.Text & "' , '" & 3300 & "' , '" & txtLoadId0.Text & "', '" & txtLoadWt0.Text & "', '" & txtPurge0.Text & "','" & Time_PurgeMode0 & "', '" & txtHeat0.Text & "','" & Time_HeatMode0 & "', '" & txtSoak0.Text & "','" & Time_SoakMode0 & "', '" & txtCool0.Text & "','" & Time_CoolMode0 & "', '" & Date.Now & "')"
+                'ElseIf Furn = 1 Then
+            End If
+            If Furn = 1 Then
+                cmd.CommandText = "Insert into AnnealingLoads([LoadStartDateTime], [LoadStopDateTime], [Cycle], [Furnace], [LoadId], [LoadWeight], [PurgeTime], [PurgeTimePerPound], [HeatTime], [HeatTimePerPound], [SoakTime], [SoakTimePerPound], [CoolTime], [CoolTimePerPound], [TimeStamp]) VALUES ('" & CycStart1.Text & "' , '" & CycStop1.Text & "', '" & txtCyc1.Text & "' ,  '" & 3301 & "' , '" & txtLoadId1.Text & "', '" & txtLoadWt1.Text & "', '" & txtPurge1.Text & "','" & Time_PurgeMode1 & "', '" & txtHeat1.Text & "','" & Time_HeatMode1 & "', '" & txtSoak1.Text & "','" & Time_SoakMode1 & "', '" & txtCool1.Text & "','" & Time_CoolMode1 & "', '" & Date.Now & "')"
+                'ElseIf Furn = 2 Then
+            End If
+            If Furn = 2 Then
+                cmd.CommandText = "Insert into AnnealingLoads([LoadStartDateTime], [LoadStopDateTime], [Cycle], [Furnace], [LoadId], [LoadWeight], [PurgeTime], [PurgeTimePerPound], [HeatTime], [HeatTimePerPound], [SoakTime], [SoakTimePerPound], [CoolTime], [CoolTimePerPound], [TimeStamp]) VALUES ('" & CycStart2.Text & "' , '" & CycStop2.Text & "', '" & txtCyc2.Text & "' , '" & 3302 & "' , '" & txtLoadId2.Text & "', '" & txtLoadWt2.Text & "', '" & txtPurge2.Text & "','" & Time_PurgeMode2 & "', '" & txtHeat2.Text & "','" & Time_HeatMode2 & "', '" & txtSoak2.Text & "','" & Time_SoakMode2 & "', '" & txtCool2.Text & "','" & Time_CoolMode2 & "', '" & Date.Now & "')"
+                'ElseIf Furn = 3 Then
+            End If
+            If Furn = 3 Then
+                cmd.CommandText = "Insert into AnnealingLoads([LoadStartDateTime], [LoadStopDateTime], [Cycle], [Furnace], [LoadId], [LoadWeight], [PurgeTime], [PurgeTimePerPound], [HeatTime], [HeatTimePerPound], [SoakTime], [SoakTimePerPound], [CoolTime], [CoolTimePerPound], [TimeStamp]) VALUES ('" & CycStart3.Text & "' , '" & CycStop3.Text & "', '" & txtCyc3.Text & "' , '" & 3303 & "' , '" & txtLoadId3.Text & "', '" & txtLoadWt3.Text & "', '" & txtPurge3.Text & "','" & Time_PurgeMode3 & "', '" & txtHeat3.Text & "','" & Time_HeatMode3 & "', '" & txtSoak3.Text & "','" & Time_SoakMode3 & "', '" & txtCool3.Text & "','" & Time_CoolMode3 & "', '" & Date.Now & "')"
+                'ElseIf Furn = 4 Then
+            End If
+            If Furn = 4 Then
+                cmd.CommandText = "Insert into AnnealingLoads([LoadStartDateTime], [LoadStopDateTime], [Cycle], [Furnace], [LoadId], [LoadWeight], [PurgeTime], [PurgeTimePerPound], [HeatTime], [HeatTimePerPound], [SoakTime], [SoakTimePerPound], [CoolTime], [CoolTimePerPound], [TimeStamp]) VALUES ('" & CycStart4.Text & "' , '" & CycStop4.Text & "', '" & txtCyc4.Text & "' , '" & 3304 & "' , '" & txtLoadId4.Text & "', '" & txtLoadWt4.Text & "', '" & txtPurge4.Text & "','" & Time_PurgeMode4 & "', '" & txtHeat4.Text & "','" & Time_HeatMode4 & "', '" & txtSoak4.Text & "','" & Time_SoakMode4 & "', '" & txtCool4.Text & "','" & Time_CoolMode4 & "', '" & Date.Now & "')"
+                'ElseIf Furn = 5 Then
+            End If
+            If Furn = 5 Then
+                cmd.CommandText = "Insert into AnnealingLoads([LoadStartDateTime], [LoadStopDateTime], [Cycle], [Furnace], [LoadId], [LoadWeight], [PurgeTime], [PurgeTimePerPound], [HeatTime], [HeatTimePerPound], [SoakTime], [SoakTimePerPound], [CoolTime], [CoolTimePerPound], [TimeStamp]) VALUES ('" & CycStart5.Text & "' , '" & CycStop5.Text & "', '" & txtCyc5.Text & "' , '" & 3305 & "' , '" & txtLoadId5.Text & "', '" & txtLoadWt5.Text & "', '" & txtPurge5.Text & "','" & Time_PurgeMode5 & "', '" & txtHeat5.Text & "','" & Time_HeatMode5 & "', '" & txtSoak5.Text & "','" & Time_SoakMode5 & "', '" & txtCool5.Text & "','" & Time_CoolMode5 & "', '" & Date.Now & "')"
+                'ElseIf Furn = 6 Then
+            End If
+            If Furn = 6 Then
+                cmd.CommandText = "Insert into AnnealingLoads([LoadStartDateTime], [LoadStopDateTime], [Cycle], [Furnace], [LoadId], [LoadWeight], [PurgeTime], [PurgeTimePerPound], [HeatTime], [HeatTimePerPound], [SoakTime], [SoakTimePerPound], [CoolTime], [CoolTimePerPound], [TimeStamp]) VALUES ('" & CycStart6.Text & "' , '" & CycStop6.Text & "', '" & txtCyc6.Text & "' , '" & 3306 & "' , '" & txtLoadId6.Text & "', '" & txtLoadWt6.Text & "', '" & txtPurge6.Text & "','" & Time_PurgeMode6 & "', '" & txtHeat6.Text & "','" & Time_HeatMode6 & "', '" & txtSoak6.Text & "','" & Time_SoakMode6 & "', '" & txtCool6.Text & "','" & Time_CoolMode6 & "', '" & Date.Now & "')"
+                'ElseIf Furn = 7 Then
+            End If
+            If Furn = 7 Then
+                cmd.CommandText = "Insert into AnnealingLoads([LoadStartDateTime], [LoadStopDateTime], [Cycle], [Furnace], [LoadId], [LoadWeight], [PurgeTime], [PurgeTimePerPound], [HeatTime], [HeatTimePerPound], [SoakTime], [SoakTimePerPound], [CoolTime], [CoolTimePerPound], [TimeStamp]) VALUES ('" & CycStart7.Text & "' , '" & CycStop7.Text & "', '" & txtCyc7.Text & "' , '" & 3307 & "' , '" & txtLoadId7.Text & "', '" & txtLoadWt7.Text & "', '" & txtPurge7.Text & "','" & Time_PurgeMode7 & "', '" & txtHeat7.Text & "','" & Time_HeatMode7 & "', '" & txtSoak7.Text & "','" & Time_SoakMode7 & "', '" & txtCool7.Text & "','" & Time_CoolMode7 & "', '" & Date.Now & "')"
+                'ElseIf Furn = 8 Then
+            End If
+            If Furn = 8 Then
+                cmd.CommandText = "Insert into AnnealingLoads([LoadStartDateTime], [LoadStopDateTime], [Cycle], [Furnace], [LoadId], [LoadWeight], [PurgeTime], [PurgeTimePerPound], [HeatTime], [HeatTimePerPound], [SoakTime], [SoakTimePerPound], [CoolTime], [CoolTimePerPound], [TimeStamp]) VALUES ('" & CycStart8.Text & "' , '" & CycStop8.Text & "', '" & txtCyc8.Text & "' , '" & 3308 & "' , '" & txtLoadId8.Text & "', '" & txtLoadWt8.Text & "', '" & txtPurge8.Text & "','" & Time_PurgeMode8 & "', '" & txtHeat8.Text & "','" & Time_HeatMode8 & "', '" & txtSoak8.Text & "','" & Time_SoakMode8 & "', '" & txtCool8.Text & "','" & Time_CoolMode8 & "', '" & Date.Now & "')"
+                'ElseIf Furn = 9 Then
+            End If
+            If Furn = 9 Then
+                cmd.CommandText = "Insert into AnnealingLoads([LoadStartDateTime], [LoadStopDateTime], [Cycle], [Furnace], [LoadId], [LoadWeight], [PurgeTime], [PurgeTimePerPound], [HeatTime], [HeatTimePerPound], [SoakTime], [SoakTimePerPound], [CoolTime], [CoolTimePerPound], [TimeStamp]) VALUES ('" & CycStart9.Text & "' , '" & CycStop9.Text & "', '" & txtCyc9.Text & "' , '" & 3309 & "' , '" & txtLoadId9.Text & "', '" & txtLoadWt9.Text & "', '" & txtPurge9.Text & "','" & Time_PurgeMode9 & "', '" & txtHeat9.Text & "','" & Time_HeatMode9 & "', '" & txtSoak9.Text & "','" & Time_SoakMode9 & "', '" & txtCool9.Text & "','" & Time_CoolMode9 & "', '" & Date.Now & "')"
+                'ElseIf Furn = 10 Then
+            End If
+            If Furn = 10 Then
+                cmd.CommandText = "Insert into AnnealingLoads([LoadStartDateTime], [LoadStopDateTime], [Cycle], [Furnace], [LoadId], [LoadWeight], [PurgeTime], [PurgeTimePerPound], [HeatTime], [HeatTimePerPound], [SoakTime], [SoakTimePerPound], [CoolTime], [CoolTimePerPound], [TimeStamp]) VALUES ('" & CycStart10.Text & "' , '" & CycStop10.Text & "', '" & txtCyc10.Text & "' , '" & 3310 & "' , '" & txtLoadId10.Text & "', '" & txtLoadWt10.Text & "', '" & txtPurge10.Text & "','" & Time_PurgeMode10 & "', '" & txtHeat10.Text & "','" & Time_HeatMode10 & "', '" & txtSoak10.Text & "','" & Time_SoakMode10 & "', '" & txtCool10.Text & "','" & Time_CoolMode10 & "', '" & Date.Now & "')"
+            End If
+
+            cmd.ExecuteNonQuery()
+
+            oConn.Close()
+            LogData = True
+        Catch ex As OleDb.OleDbException
+            MessageBox.Show(ex.Message.ToString)
+
+        End Try
+
+
+    End Function
+
+    Private Sub Timer1_Tick(sender As System.Object, e As System.EventArgs) Handles Timer1.Tick
+        'txtDtTime.Text = TimeOfDay.ToString("h:mm:ss tt")
+        txtDate.Text = Date.Now
+        'txtStopTime.Text = StopTime.ToString("h:mm:ss tt")
+    End Sub
+
+    Private Sub AnnealingLoads_Load(sender As Object, e As System.EventArgs) Handles Me.Load
+        Timer1.Enabled = True
+        Timer1.Start()
+        Call Timer1_Tick(sender, e)
+        CycStop0.Text = Date.Now
+        CycStop1.Text = Date.Now
+        CycStop2.Text = Date.Now
+        CycStop3.Text = Date.Now
+        CycStop4.Text = Date.Now
+        CycStop5.Text = Date.Now
+        CycStop6.Text = Date.Now
+        CycStop7.Text = Date.Now
+        CycStop8.Text = Date.Now
+        CycStop9.Text = Date.Now
+        CycStop10.Text = Date.Now
+
+        CycStart0.Text = Date.Now
+        CycStart1.Text = Date.Now
+        CycStart2.Text = Date.Now
+        CycStart3.Text = Date.Now
+        CycStart4.Text = Date.Now
+        CycStart5.Text = Date.Now
+        CycStart6.Text = Date.Now
+        CycStart7.Text = Date.Now
+        CycStart8.Text = Date.Now
+        CycStart9.Text = Date.Now
+        CycStart10.Text = Date.Now
+    End Sub
+
+    Private Sub txtLoadId0_TextChanged(sender As Object, e As System.EventArgs) Handles txtLoadId0.TextChanged
+        Furn = 0
+        If Trim(txtLoadId0.Text) = "0" Then
+            'CycStop0.Text = Date.Now
+            CycStart0.Text = Date.Now
+        ElseIf Trim(txtLoadId0.Text) <> "0" Then
+            CycStart0.Text = Date.Now
+        End If
+        Call LogData()
+    End Sub
+
+    Private Sub txtLoadId1_TextChanged(sender As Object, e As System.EventArgs) Handles txtLoadId1.TextChanged
+        Furn = 1
+        If Trim(txtLoadId1.Text) = "0" Then
+            'CycStop1.Text = Date.Now
+            CycStart1.Text = Date.Now
+        ElseIf Trim(txtLoadId1.Text) <> "0" Then
+            CycStart1.Text = Date.Now
+        End If
+        Call LogData()
+    End Sub
+    Private Sub txtLoadId2_TextChanged(sender As Object, e As System.EventArgs) Handles txtLoadId2.TextChanged
+        Furn = 2
+        If Trim(txtLoadId2.Text) = "0" Then
+            'CycStop2.Text = Date.Now
+            CycStart2.Text = Date.Now
+        ElseIf Trim(txtLoadId0.Text) <> "0" Then
+            CycStart2.Text = Date.Now
+        End If
+        Call LogData()
+    End Sub
+    Private Sub txtLoadId3_TextChanged(sender As Object, e As System.EventArgs) Handles txtLoadId3.TextChanged
+        Furn = 3
+        If Trim(txtLoadId3.Text) = "0" Then
+            'CycStop3.Text = Date.Now
+            CycStart3.Text = Date.Now
+        ElseIf Trim(txtLoadId3.Text) <> "0" Then
+            CycStart3.Text = Date.Now
+        End If
+        Call LogData()
+    End Sub
+    Private Sub txtLoadId4_TextChanged(sender As Object, e As System.EventArgs) Handles txtLoadId4.TextChanged
+        Furn = 4
+        If Trim(txtLoadId4.Text) = "0" Then
+            'CycStop4.Text = Date.Now
+            CycStart4.Text = Date.Now
+        ElseIf Trim(txtLoadId4.Text) <> "0" Then
+            CycStart4.Text = Date.Now
+        End If
+        Call LogData()
+    End Sub
+    Private Sub txtLoadId5_TextChanged(sender As Object, e As System.EventArgs) Handles txtLoadId5.TextChanged
+        Furn = 5
+        If Trim(txtLoadId5.Text) = "0" Then
+            'CycStop5.Text = Date.Now
+            CycStart5.Text = Date.Now
+        ElseIf Trim(txtLoadId5.Text) <> "0" Then
+            CycStart5.Text = Date.Now
+        End If
+        Call LogData()
+    End Sub
+    Private Sub txtLoadId6_TextChanged(sender As Object, e As System.EventArgs) Handles txtLoadId6.TextChanged
+        Furn = 6
+        If Trim(txtLoadId6.Text) = "0" Then
+            'CycStop6.Text = Date.Now
+            CycStart6.Text = Date.Now
+        ElseIf Trim(txtLoadId6.Text) <> "0" Then
+            CycStart6.Text = Date.Now
+        End If
+        Call LogData()
+    End Sub
+    Private Sub txtLoadId7_TextChanged(sender As Object, e As System.EventArgs) Handles txtLoadId7.TextChanged
+        Furn = 7
+        If Trim(txtLoadId7.Text) = "0" Then
+            'CycStop7.Text = Date.Now
+            CycStart7.Text = Date.Now
+        ElseIf Trim(txtLoadId7.Text) <> "0" Then
+            CycStart7.Text = Date.Now
+        End If
+        Call LogData()
+    End Sub
+    Private Sub txtLoadId8_TextChanged(sender As Object, e As System.EventArgs) Handles txtLoadId8.TextChanged
+        Furn = 8
+        If Trim(txtLoadId8.Text) = "0" Then
+            'CycStop8.Text = Date.Now
+            CycStart8.Text = Date.Now
+        ElseIf Trim(txtLoadId8.Text) <> "0" Then
+            CycStart8.Text = Date.Now
+        End If
+        Call LogData()
+    End Sub
+    Private Sub txtLoadId9_TextChanged(sender As Object, e As System.EventArgs) Handles txtLoadId9.TextChanged
+        Furn = 9
+        If Trim(txtLoadId9.Text) = "0" Then
+            'CycStop9.Text = Date.Now
+            CycStart9.Text = Date.Now
+        ElseIf Trim(txtLoadId9.Text) <> "0" Then
+            CycStart9.Text = Date.Now
+        End If
+        Call LogData()
+    End Sub
+
+    Private Sub txtLoadId10_TextChanged(sender As Object, e As System.EventArgs) Handles txtLoadId10.TextChanged
+        Furn = 10
+        If Trim(txtLoadId10.Text) = "0" Then
+            'CycStop10.Text = Date.Now
+            CycStart10.Text = Date.Now
+        ElseIf Trim(txtLoadId10.Text) <> "0" Then
+            CycStart10.Text = Date.Now
+        End If
+        Call LogData()
+    End Sub
+
+
+
+
+
+
+
+
+    'Private Sub txtMachine0_TextChanged(sender As System.Object, e As System.EventArgs) Handles txtMachine0.TextChanged
+    '    If txtMachine0.Text = "0" Or Trim(txtMachine0.Text) = "" Then
+    '        txtMachine0.Text = "3300"
+    '    End If
+    'End Sub
+    'Private Sub txtMachine1_TextChanged(sender As System.Object, e As System.EventArgs) Handles txtMachine1.TextChanged
+    '    If txtMachine1.Text = "0" Or Trim(txtMachine1.Text) = "" Then
+    '        txtMachine1.Text = "3301"
+    '    End If
+    'End Sub
+    'Private Sub txtMachine2_TextChanged(sender As System.Object, e As System.EventArgs) Handles txtMachine2.TextChanged
+    '    If txtMachine2.Text = "0" Or Trim(txtMachine2.Text) = "" Then
+    '        txtMachine2.Text = "3302"
+    '    End If
+    'End Sub
+
+    'Private Sub txtMachine3_TextChanged(sender As System.Object, e As System.EventArgs) Handles txtMachine3.TextChanged
+    '    If txtMachine3.Text = "0" Or Trim(txtMachine3.Text) = "" Then
+    '        txtMachine3.Text = "3303"
+    '    End If
+    'End Sub
+
+    'Private Sub txtMachine4_TextChanged(sender As System.Object, e As System.EventArgs) Handles txtMachine4.TextChanged
+    '    If txtMachine4.Text = "0" Or Trim(txtMachine4.Text) = "" Then
+    '        txtMachine4.Text = "3304"
+    '    End If
+    'End Sub
+    'Private Sub txtMachine5_TextChanged(sender As System.Object, e As System.EventArgs) Handles txtMachine5.TextChanged
+    '    If txtMachine5.Text = "0" Or Trim(txtMachine5.Text) = "" Then
+    '        txtMachine5.Text = "3305"
+    '    End If
+    'End Sub
+    'Private Sub txtMachine6_TextChanged(sender As System.Object, e As System.EventArgs) Handles txtMachine6.TextChanged
+    '    If txtMachine6.Text = "0" Or Trim(txtMachine6.Text) = "" Then
+    '        txtMachine6.Text = "3306"
+    '    End If
+    'End Sub
+    'Private Sub txtMachine7_TextChanged(sender As System.Object, e As System.EventArgs) Handles txtMachine7.TextChanged
+    '    If txtMachine7.Text = "0" Or Trim(txtMachine7.Text) = "" Then
+    '        txtMachine7.Text = "3307"
+    '    End If
+    'End Sub
+    'Private Sub txtMachine8_TextChanged(sender As System.Object, e As System.EventArgs) Handles txtMachine8.TextChanged
+    '    If txtMachine8.Text = "0" Or Trim(txtMachine8.Text) = "" Then
+    '        txtMachine8.Text = "3308"
+    '    End If
+    'End Sub
+    'Private Sub txtMachine9_TextChanged(sender As System.Object, e As System.EventArgs) Handles txtMachine9.TextChanged
+    '    If txtMachine9.Text = "0" Or Trim(txtMachine9.Text) = "" Then
+    '        txtMachine9.Text = "3309"
+    '    End If
+    'End Sub
+    'Private Sub txtMachine10_TextChanged(sender As System.Object, e As System.EventArgs) Handles txtMachine10.TextChanged
+    '    If txtMachine10.Text = "0" Or Trim(txtMachine10.Text) = "" Then
+    '        txtMachine10.Text = "3310"
+    '    End If
+    'End Sub
+
+    'Private Sub txtCycON0_TextChanged(sender As System.Object, e As System.EventArgs) Handles txtCycON0.TextChanged
+    '    Furn = 0
+    '    If txtCycON0.Text = True Then
+    '        CycStart0.Text = Date.Now
+    '        CycStop0.Text = ""
+    '        Call LogData()
+    '    ElseIf txtCycON0.Text = "0" Then
+    '        CycStart0.Text = ""
+    '        CycStop0.Text = Date.Now
+    '        Call LogData()
+    '    End If
+    'End Sub
+    'Private Sub txtCycON1_TextChanged(sender As System.Object, e As System.EventArgs) Handles txtCycON1.TextChanged
+    '    Furn = 1
+    '    If txtCycON1.Text = "1" Then
+    '        CycStart1.Text = Date.Now
+    '        CycStop1.Text = ""
+    '        Call LogData()
+    '    ElseIf txtCycON1.Text = "0" Then
+    '        CycStart1.Text = ""
+    '        CycStop1.Text = Date.Now
+    '        Call LogData()
+    '    End If
+    'End Sub
+    'Private Sub txtCycON2_TextChanged(sender As System.Object, e As System.EventArgs) Handles txtCycON2.TextChanged
+    '    Furn = 2
+    '    If txtCycON2.Text = "1" Then
+    '        CycStart2.Text = Date.Now
+    '        CycStop2.Text = ""
+    '        Call LogData()
+    '    ElseIf txtCycON2.Text = "0" Then
+    '        CycStart2.Text = ""
+    '        CycStop0.Text = Date.Now
+    '        Call LogData()
+    '    End If
+    'End Sub
+    'Private Sub txtCycON3_TextChanged(sender As System.Object, e As System.EventArgs) Handles txtCycON3.TextChanged
+    '    Furn = 3
+    '    If txtCycON3.Text = "1" Then
+    '        CycStart3.Text = Date.Now
+    '        CycStop3.Text = ""
+    '        Call LogData()
+    '    ElseIf txtCycON3.Text = "0" Then
+    '        CycStart3.Text = ""
+    '        CycStop3.Text = Date.Now
+    '        Call LogData()
+    '    End If
+    'End Sub
+    'Private Sub txtCycON4_TextChanged(sender As System.Object, e As System.EventArgs) Handles txtCycON4.TextChanged
+    '    Furn = 4
+    '    If txtCycON4.Text = "1" Then
+    '        CycStart4.Text = Date.Now
+    '        CycStop4.Text = ""
+    '        Call LogData()
+    '    ElseIf txtCycON4.Text = "0" Then
+    '        CycStart4.Text = ""
+    '        CycStop4.Text = Date.Now
+    '        Call LogData()
+    '    End If
+    'End Sub
+    'Private Sub txtCycON5_TextChanged(sender As System.Object, e As System.EventArgs) Handles txtCycON5.TextChanged
+    '    Furn = 5
+    '    If txtCycON5.Text = "1" Then
+    '        CycStart5.Text = Date.Now
+    '        CycStop5.Text = ""
+    '        Call LogData()
+    '    ElseIf txtCycON5.Text = "0" Then
+    '        CycStart5.Text = ""
+    '        CycStop5.Text = Date.Now
+    '        Call LogData()
+    '    End If
+    'End Sub
+    'Private Sub txtCycON6_TextChanged(sender As System.Object, e As System.EventArgs) Handles txtCycON6.TextChanged
+    '    Furn = 6
+    '    If txtCycON6.Text = "1" Then
+    '        CycStart6.Text = Date.Now
+    '        CycStop6.Text = ""
+    '        Call LogData()
+    '    ElseIf txtCycON6.Text = "0" Then
+    '        CycStart6.Text = ""
+    '        CycStop6.Text = Date.Now
+    '        Call LogData()
+    '    End If
+    'End Sub
+    'Private Sub txtCycON7_TextChanged(sender As System.Object, e As System.EventArgs) Handles txtCycON7.TextChanged
+    '    Furn = 7
+    '    If txtCycON7.Text = "1" Then
+    '        CycStart7.Text = Date.Now
+    '        CycStop7.Text = ""
+    '        Call LogData()
+    '    ElseIf txtCycON7.Text = "0" Then
+    '        CycStart7.Text = ""
+    '        CycStop7.Text = Date.Now
+    '        Call LogData()
+    '    End If
+    'End Sub
+    'Private Sub txtCycON8_TextChanged(sender As System.Object, e As System.EventArgs) Handles txtCycON8.TextChanged
+    '    Furn = 8
+    '    If txtCycON8.Text = "1" Then
+    '        CycStart8.Text = Date.Now
+    '        CycStop8.Text = ""
+    '        Call LogData()
+    '    ElseIf txtCycON8.Text = "0" Then
+    '        CycStart8.Text = ""
+    '        CycStop8.Text = Date.Now
+    '        Call LogData()
+    '    End If
+    'End Sub
+    'Private Sub txtCycON9_TextChanged(sender As System.Object, e As System.EventArgs) Handles txtCycON9.TextChanged
+    '    Furn = 9
+    '    If txtCycON9.Text = "1" Then
+    '        CycStart9.Text = Date.Now
+    '        CycStop9.Text = ""
+    '        Call LogData()
+    '    ElseIf txtCycON9.Text = "0" Then
+    '        CycStart9.Text = ""
+    '        CycStop9.Text = Date.Now
+    '        Call LogData()
+    '    End If
+    'End Sub
+
+
+    'Private Sub txtCycON10_TextChanged(sender As System.Object, e As System.EventArgs) Handles txtCycON10.TextChanged
+    '    Furn = 10
+    '    If txtCycON10.Text = "1" Then
+    '        CycStart10.Text = Date.Now
+    '        CycStop10.Text = ""
+    '        Call LogData()
+    '    ElseIf txtCycON10.Text = "0" Then
+    '        CycStart10.Text = ""
+    '        CycStop10.Text = Date.Now
+    '        Call LogData()
+    '    End If
+    'End Sub
+
+
+
+
+
+
+
+
+
+
+
+    Private Sub txtCyc0_TextChanged(sender As System.Object, e As System.EventArgs) Handles txtCyc0.TextChanged
+        Furn = 0
+        If Trim(txtLoadId0.Text) = "0" Then
+            'CycStop0.Text = Date.Now
+            CycStart0.Text = Date.Now
+        ElseIf Trim(txtLoadId0.Text) <> "0" Then
+            CycStart0.Text = Date.Now
+        End If
+        Call LogData()
+    End Sub
+    Private Sub txtCyc1_TextChanged(sender As System.Object, e As System.EventArgs) Handles txtCyc0.TextChanged
+        Furn = 1
+        If Trim(txtLoadId1.Text) = "0" Then
+            'CycStop1.Text = Date.Now
+            CycStart1.Text = Date.Now
+        ElseIf Trim(txtLoadId1.Text) <> "0" Then
+            CycStart1.Text = Date.Now
+        End If
+        Call LogData()
+    End Sub
+    Private Sub txtCyc2_TextChanged(sender As System.Object, e As System.EventArgs) Handles txtCyc0.TextChanged
+        Furn = 2
+        If Trim(txtLoadId2.Text) = "0" Then
+            'CycStop2.Text = Date.Now
+            CycStart2.Text = Date.Now
+        ElseIf Trim(txtLoadId2.Text) <> "0" Then
+            CycStart2.Text = Date.Now
+        End If
+        Call LogData()
+    End Sub
+    Private Sub txtCyc3_TextChanged(sender As System.Object, e As System.EventArgs) Handles txtCyc0.TextChanged
+        Furn = 3
+        If Trim(txtLoadId3.Text) = "0" Then
+            'CycStop3.Text = Date.Now
+            CycStart3.Text = Date.Now
+        ElseIf Trim(txtLoadId3.Text) <> "0" Then
+            CycStart3.Text = Date.Now
+        End If
+        Call LogData()
+    End Sub
+    Private Sub txtCyc4_TextChanged(sender As System.Object, e As System.EventArgs) Handles txtCyc0.TextChanged
+        Furn = 4
+        If Trim(txtLoadId4.Text) = "0" Then
+            'CycStop4.Text = Date.Now
+            CycStart4.Text = Date.Now
+        ElseIf Trim(txtLoadId4.Text) <> "0" Then
+            CycStart4.Text = Date.Now
+        End If
+        Call LogData()
+    End Sub
+    Private Sub txtCyc5_TextChanged(sender As System.Object, e As System.EventArgs) Handles txtCyc0.TextChanged
+        Furn = 5
+        If Trim(txtLoadId5.Text) = "0" Then
+            'CycStop5.Text = Date.Now
+            CycStart5.Text = Date.Now
+        ElseIf Trim(txtLoadId5.Text) <> "0" Then
+            CycStart5.Text = Date.Now
+        End If
+        Call LogData()
+    End Sub
+    Private Sub txtCyc6_TextChanged(sender As System.Object, e As System.EventArgs) Handles txtCyc0.TextChanged
+        Furn = 6
+        If Trim(txtLoadId6.Text) = "0" Then
+            'CycStop6.Text = Date.Now
+            CycStart6.Text = Date.Now
+        ElseIf Trim(txtLoadId6.Text) <> "0" Then
+            CycStart6.Text = Date.Now
+        End If
+        Call LogData()
+    End Sub
+    Private Sub txtCyc7_TextChanged(sender As System.Object, e As System.EventArgs) Handles txtCyc0.TextChanged
+        Furn = 7
+        If Trim(txtLoadId7.Text) = "0" Then
+            'CycStop7.Text = Date.Now
+            CycStart7.Text = Date.Now
+        ElseIf Trim(txtLoadId7.Text) <> "0" Then
+            CycStart7.Text = Date.Now
+        End If
+        Call LogData()
+    End Sub
+    Private Sub txtCyc8_TextChanged(sender As System.Object, e As System.EventArgs) Handles txtCyc0.TextChanged
+        Furn = 8
+        If Trim(txtLoadId8.Text) = "0" Then
+            'CycStop8.Text = Date.Now
+            CycStart8.Text = Date.Now
+        ElseIf Trim(txtLoadId8.Text) <> "0" Then
+            CycStart8.Text = Date.Now
+        End If
+        Call LogData()
+    End Sub
+    Private Sub txtCyc9_TextChanged(sender As System.Object, e As System.EventArgs) Handles txtCyc0.TextChanged
+        Furn = 9
+        If Trim(txtLoadId9.Text) = "0" Then
+            'CycStop9.Text = Date.Now
+            CycStart9.Text = Date.Now
+        ElseIf Trim(txtLoadId9.Text) <> "0" Then
+            CycStart9.Text = Date.Now
+        End If
+        Call LogData()
+    End Sub
+    Private Sub txtCyc10_TextChanged(sender As System.Object, e As System.EventArgs) Handles txtCyc0.TextChanged
+        Furn = 10
+        If Trim(txtLoadId10.Text) = "0" Then
+            'CycStop10.Text = Date.Now
+            CycStart10.Text = Date.Now
+        ElseIf Trim(txtLoadId10.Text) <> "0" Then
+            CycStart10.Text = Date.Now
+        End If
+        Call LogData()
+    End Sub
+
+
+
+    Private Sub txtLoadWt0_TextChanged(sender As System.Object, e As System.EventArgs) Handles txtLoadWt0.TextChanged
+        Furn = 0
+        Call LogData()
+    End Sub
+    Private Sub txtLoadWt1_TextChanged(sender As System.Object, e As System.EventArgs) Handles txtLoadWt0.TextChanged
+        Furn = 1
+        Call LogData()
+    End Sub
+    Private Sub txtLoadWt2_TextChanged(sender As System.Object, e As System.EventArgs) Handles txtLoadWt0.TextChanged
+        Furn = 2
+        Call LogData()
+    End Sub
+    Private Sub txtLoadWt3_TextChanged(sender As System.Object, e As System.EventArgs) Handles txtLoadWt0.TextChanged
+        Furn = 3
+        Call LogData()
+    End Sub
+    Private Sub txtLoadWt4_TextChanged(sender As System.Object, e As System.EventArgs) Handles txtLoadWt0.TextChanged
+        Furn = 4
+        Call LogData()
+    End Sub
+    Private Sub txtLoadWt5_TextChanged(sender As System.Object, e As System.EventArgs) Handles txtLoadWt0.TextChanged
+        Furn = 5
+        Call LogData()
+    End Sub
+    Private Sub txtLoadWt6_TextChanged(sender As System.Object, e As System.EventArgs) Handles txtLoadWt0.TextChanged
+        Furn = 6
+        Call LogData()
+    End Sub
+    Private Sub txtLoadWt7_TextChanged(sender As System.Object, e As System.EventArgs) Handles txtLoadWt0.TextChanged
+        Furn = 7
+        Call LogData()
+    End Sub
+    Private Sub txtLoadWt8_TextChanged(sender As System.Object, e As System.EventArgs) Handles txtLoadWt0.TextChanged
+        Furn = 8
+        Call LogData()
+    End Sub
+    Private Sub txtLoadWt9_TextChanged(sender As System.Object, e As System.EventArgs) Handles txtLoadWt0.TextChanged
+        Furn = 9
+        Call LogData()
+    End Sub
+    Private Sub txtLoadWt10_TextChanged(sender As System.Object, e As System.EventArgs) Handles txtLoadWt0.TextChanged
+        Furn = 10
+        Call LogData()
+    End Sub
+
+
+End Class
